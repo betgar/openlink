@@ -55,6 +55,15 @@ curl http://127.0.0.1:39527/health
 curl http://127.0.0.1:39527/tools -H "Authorization: Bearer <token>"
 ```
 
+### Scripts
+```bash
+# Build & deploy extension
+./scripts/deploy-extension.sh
+
+# Run platform-specific tests
+./scripts/test-platform.sh
+```
+
 ## Code Style Guidelines
 
 ### Imports
