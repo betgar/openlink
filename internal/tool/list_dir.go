@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/afumu/openlink/internal/security"
-	"github.com/afumu/openlink/internal/types"
+	"github.com/betgar/openlink/internal/security"
+	"github.com/betgar/openlink/internal/types"
 )
 
 type ListDirTool struct {

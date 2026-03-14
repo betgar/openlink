@@ -44,7 +44,7 @@ openlink
 
 > Chrome Web Store 版本即将上线，目前请手动安装。
 
-1. 下载最新 [Release](https://github.com/afumu/openlink/releases/latest) 中的 `extension.zip` 并解压
+1. 下载最新 [Release](https://github.com/betgar/openlink/releases/latest) 中的 `extension.zip` 并解压
 2. 打开 Chrome，访问 `chrome://extensions/`
 3. 开启右上角「开发者模式」
 4. 点击「加载已解压的扩展程序」，选择解压后的目录
@@ -201,7 +201,7 @@ openlink [选项]
 
 ## 问题反馈
 
-[提交 Issue](https://github.com/afumu/openlink/issues)
+[提交 Issue](https://github.com/betgar/openlink/issues)
 
 ---
 

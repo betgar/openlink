@@ -198,7 +198,7 @@ Each skill is a subdirectory containing `SKILL.md` with frontmatter (`name`, `de
 
 ## Module Information
 
-- **Module**: `github.com/afumu/openlink`
+- **Module**: `github.com/betgar/openlink`
 - **Go Version**: 1.23.0+ (toolchain 1.24.10)
 - **Main Dependencies**: Gin web framework, standard library only
 - **Extension**: TypeScript, Manifest V3, built with esbuild/webpack

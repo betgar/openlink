@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/afumu/openlink/internal/types"
+	"github.com/betgar/openlink/internal/types"
 )
 
 func testServer(t *testing.T) *Server {

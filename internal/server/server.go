@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/afumu/openlink/internal/executor"
-	"github.com/afumu/openlink/internal/security"
-	"github.com/afumu/openlink/internal/skill"
-	"github.com/afumu/openlink/internal/types"
+	"github.com/betgar/openlink/internal/executor"
+	"github.com/betgar/openlink/internal/security"
+	"github.com/betgar/openlink/internal/skill"
+	"github.com/betgar/openlink/internal/types"
 	"github.com/gin-gonic/gin"
 )
 

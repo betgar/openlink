@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/afumu/openlink/internal/types"
+	"github.com/betgar/openlink/internal/types"
 	"github.com/gin-gonic/gin"
 )
 

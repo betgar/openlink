@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/afumu/openlink/internal/types"
+	"github.com/betgar/openlink/internal/types"
 )
 
 func TestExecCmdValidate(t *testing.T) {

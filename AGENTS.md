@@ -69,7 +69,7 @@ curl http://127.0.0.1:39527/tools -H "Authorization: Bearer <token>"
 ### Imports
 - Standard library imports first, blank line, then external packages
 - Group imports in parentheses, alphabetically sorted within each group
-- Use relative imports within the module: `github.com/afumu/openlink/internal/...`
+- Use relative imports within the module: `github.com/betgar/openlink/internal/...`
 
 ```go
 import (

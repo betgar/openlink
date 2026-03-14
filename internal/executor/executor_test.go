@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/afumu/openlink/internal/types"
+	"github.com/betgar/openlink/internal/types"
 )
 
 func testConfig(t *testing.T) *types.Config {

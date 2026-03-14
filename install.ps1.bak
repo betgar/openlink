@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$REPO = "betgar/openlink"
+$REPO = "afumu/openlink"
 $BIN = "openlink"
 $INSTALL_DIR = "$env:USERPROFILE\.openlink"
 
