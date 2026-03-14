@@ -75,6 +75,18 @@ openlink
 |------|------|------|
 | Google AI Studio | ✅ | 推荐，原生支持系统提示词 |
 | Google Gemini | ✅ | |
+| ChatGPT | ✅ | |
+| Grok | ✅ | |
+| Kimi | ✅ | |
+| Mistral | ✅ | |
+| Perplexity | ✅ | |
+| OpenRouter | ✅ | |
+| 通义千问 | ✅ | |
+| t3.chat | ✅ | |
+| GitHub Copilot | ✅ | |
+| z.ai | ✅ | |
+| Arena.ai | ✅ | |
+| DeepSeek | ✅ | 默认回退平台 |
 
 ---
 

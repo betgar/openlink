@@ -14,7 +14,23 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.gemini.google.com/*", "*://aistudio.google.com/*"],
+      "matches": [
+        "*://*.gemini.google.com/*",
+        "*://aistudio.google.com/*",
+        "*://*.chatgpt.com/*",
+        "*://*.grok.com/*",
+        "*://*.x.com/*",
+        "*://*.kimi.com/*",
+        "*://*.chat.mistral.ai/*",
+        "*://*.perplexity.ai/*",
+        "*://*.openrouter.ai/*",
+        "*://*.qwen.ai/*",
+        "*://*.t3.chat/*",
+        "*://*.github.com/*",
+        "*://*.z.ai/*",
+        "*://*.arena.ai/*",
+        "*://*.deepseek.com/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_start"
     }
@@ -22,7 +38,23 @@
   "web_accessible_resources": [
     {
       "resources": ["injected.js"],
-      "matches": ["*://*.gemini.google.com/*", "*://aistudio.google.com/*"]
+      "matches": [
+        "*://*.gemini.google.com/*",
+        "*://aistudio.google.com/*",
+        "*://*.chatgpt.com/*",
+        "*://*.grok.com/*",
+        "*://*.x.com/*",
+        "*://*.kimi.com/*",
+        "*://*.chat.mistral.ai/*",
+        "*://*.perplexity.ai/*",
+        "*://*.openrouter.ai/*",
+        "*://*.qwen.ai/*",
+        "*://*.t3.chat/*",
+        "*://*.github.com/*",
+        "*://*.z.ai/*",
+        "*://*.arena.ai/*",
+        "*://*.deepseek.com/*"
+      ]
     }
   ]
 }

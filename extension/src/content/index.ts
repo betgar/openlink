@@ -64,8 +64,32 @@ function getSiteConfig(): SiteConfig {
   const h = location.hostname;
   if (h.includes('gemini.google.com'))
     return { editor: 'div.ql-editor[contenteditable="true"]', sendBtn: 'button.send-button[aria-label*="发送"], button.send-button[aria-label*="Send"]', stopBtn: null, fillMethod: 'execCommand', useObserver: true, responseSelector: 'model-response, .model-response-text, message-content' };
-  // Default: AI Studio
-  return { editor: 'textarea[placeholder*="Start typing a prompt"]', sendBtn: 'button.ctrl-enter-submits.ms-button-primary[type="submit"], button[aria-label*="Run"]', stopBtn: null, fillMethod: 'value', useObserver: true, responseSelector: 'ms-chat-turn' };
+  if (h.includes('chatgpt.com'))
+    return { editor: '.ProseMirror[contenteditable="true"]#prompt-textarea, .ProseMirror[contenteditable="true"]', sendBtn: 'button[data-testid="send-button"], button[aria-label*="Send"], button[aria-label*="发送"]', stopBtn: null, fillMethod: 'prosemirror', useObserver: true, responseSelector: '.markdown.prose' };
+  if (h.includes('x.com') || h.includes('grok.com'))
+    return { editor: 'textarea[aria-label="Ask Grok anything"], textarea[placeholder="Ask anything"], textarea', sendBtn: 'button[aria-label="Submit"], button.send-button', stopBtn: null, fillMethod: 'value', useObserver: false };
+  if (h.includes('kimi.com'))
+    return { editor: '.chat-input-editor[contenteditable="true"], div[contenteditable="true"][data-lexical-editor="true"]', sendBtn: '.send-button, button[aria-label*="Send"]', stopBtn: null, fillMethod: 'execCommand', useObserver: false };
+  if (h.includes('chat.mistral.ai'))
+    return { editor: 'div.ProseMirror[contenteditable="true"]', sendBtn: '.ms-auto .flex.gap-2 button[type="submit"], button.bg-state-primary', stopBtn: null, fillMethod: 'execCommand', useObserver: false };
+  if (h.includes('perplexity.ai'))
+    return { editor: '#ask-input[contenteditable="true"], div[contenteditable="true"][data-lexical-editor="true"]', sendBtn: 'button[aria-label="Submit"], button[aria-label="Send"]', stopBtn: null, fillMethod: 'execCommand', useObserver: false };
+  if (h.includes('openrouter.ai'))
+    return { editor: 'textarea[data-testid="composer-input"], textarea[placeholder="Start a new message..."]', sendBtn: 'button[data-testid="send-button"], button[aria-label="Send message"]', stopBtn: null, fillMethod: 'value', useObserver: false };
+  if (h.includes('qwen.ai'))
+    return { editor: 'textarea.message-input-textarea, #chat-input', sendBtn: 'button.omni-button-content-btn, div.message-input-right-button-send button', stopBtn: null, fillMethod: 'value', useObserver: true, responseSelector: '.chat-response-message' };
+  if (h.includes('t3.chat'))
+    return { editor: 'textarea#chat-input, textarea[placeholder*="Type your message"]', sendBtn: 'button[type="submit"], button[aria-label*="Send"]', stopBtn: null, fillMethod: 'value', useObserver: false };
+  if (h.includes('aistudio.google.com'))
+    return { editor: 'textarea[placeholder*="Start typing a prompt"]', sendBtn: 'button.ctrl-enter-submits.ms-button-primary[type="submit"], button[aria-label*="Run"]', stopBtn: null, fillMethod: 'value', useObserver: true, responseSelector: 'ms-chat-turn' };
+  if (h.includes('github.com'))
+    return { editor: '#copilot-chat-textarea, textarea[placeholder*="How can I help"]', sendBtn: 'button[aria-labelledby*="Send"], button:has(.octicon-paper-airplane)', stopBtn: null, fillMethod: 'value', useObserver: false };
+  if (h.includes('z.ai'))
+    return { editor: '#chat-input', sendBtn: '#send-message-button', stopBtn: null, fillMethod: 'value', useObserver: false };
+  if (h.includes('arena.ai'))
+    return { editor: 'textarea[name="message"], textarea[placeholder="Ask followup…"]', sendBtn: 'button[type="submit"]', stopBtn: null, fillMethod: 'value', useObserver: true, responseSelector: '.prose' };
+  // Default: DeepSeek
+  return { editor: '[data-slate-editor="true"]', sendBtn: '.operateBtn-JsB9e2:not(.disabled-ZaDDJC)', stopBtn: '.stop-yGpvO2 img', fillMethod: 'paste', useObserver: false };
 }
 
 if (!(window as any).__OPENLINK_LOADED__) {
@@ -283,6 +307,8 @@ function startDOMObserver(_responseSelector: string) {
       const tag = el.tagName.toLowerCase();
       if (tag === 'message-content') return el;
       if (tag === 'ms-chat-turn') return el;
+      if (el.classList.contains('chat-response-message')) return el;
+      if (el.classList.contains('prose')) return el;
       el = el.parentElement;
     }
     return null;
@@ -362,7 +388,7 @@ function startDOMObserver(_responseSelector: string) {
 
   // Initial scan for already-rendered tool calls (e.g. after page refresh)
   requestAnimationFrame(() => {
-    document.querySelectorAll('message-content, ms-chat-turn').forEach(el => {
+    document.querySelectorAll('message-content, .chat-response-message, ms-chat-turn').forEach(el => {
       scanText(getCleanText(el), el);
     });
   });
